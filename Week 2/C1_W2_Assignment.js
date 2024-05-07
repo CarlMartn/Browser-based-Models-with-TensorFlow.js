@@ -30,7 +30,7 @@ function getModel() {
     // the tf.train.adam() optimizer, and `acc` for your metrics.
     model.compile({optimizer: tf.train.momentum(0.01, 0.9), 
                    loss: 'categoricalCrossentropy',
-                   metrics: ['accuracy']}// YOUR CODE HERE);
+                   metrics: ['accuracy']});// YOUR CODE HERE
     
     return model;
 }
@@ -57,12 +57,12 @@ async function train(model, data) {
     // Get the training batches and resize them. Remember to put your code
     // inside a tf.tidy() clause to clean up all the intermediate tensors.
     // HINT: Take a look at the MNIST example.
-    const [trainXs, trainYs] = tf.tidy(() => {
+    const [trainXs, trainYs] = tf.tidy(() => {// YOUR CODE HERE
         const d = data.nextTrainBatch(TRAIN_DATA_SIZE);
-        return [// YOUR CODE HERE
+        return [
             d.xs.reshape([TRAIN_DATA_SIZE, 28, 28, 1]),
             d.labels
-            ];
+        ];
     });
 
     
